@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 # from polls.models import Question as Poll
-from squirrel.models import Squirrel
+from squirrel_tracker.models import Squirrel
 import csv
 import datetime
 
@@ -14,7 +14,7 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('path', type=str)
 
-    def handle(self, *args, **options):
+    def handle(self, *args, **kwargs):
         # TODO sqlite3 create table + insert into
         path = kwargs['path']
 
@@ -22,12 +22,12 @@ class Command(BaseCommand):
             path = kwargs['path']
 
             try:
-                with open(path, encoding='utf-8') as f:
-                    reader = csv.DictReader(f)
+                with open(path, encoding='utf-8') as fn: #fn = file name
+                    reader = csv.DictReader(fn)
                     for i in reader:
                         s = Squirrel(
-                            Latitude=i['Y'],
                             longitude=i['X'],
+                            Latitude=i['Y'],
                             Unique_squirrel_id=i['Unique Squirrel ID'],
                             Shift=i['Shift'],
                             Date=datetime.date(

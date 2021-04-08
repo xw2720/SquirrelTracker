@@ -66,7 +66,7 @@ class Squirrel(models.Model):
         help_text = _('Select from the list'),
         choices = FURColor_CHOICES,
         blank = True,
-    )   #需要这一步furcolor primary吗
+    )
 
     GROUND_PLANE = 'Ground Plane'
     ABOVE_GROUND = 'Above Ground'
