@@ -1,19 +1,16 @@
 from django.db import models
 from django.utils.translation import gettext as _
 
-
-
 class Meta:
     managed = True
 
 # create squirrel
-class Squirrel(models.Model):
-    Latitude  = models.FloatField(
-        help_text = _('E.g. 40.782091'),
-    )
-
+class Squirrel(models.Model): #longtitude latitute顺序会相反吗
     Longitude = models.FloatField(
         help_text = _('E.g. -73.964285'),
+    )
+    Latitude  = models.FloatField(
+        help_text = _('E.g. 40.782091'),
     )
 
     Unique_squirrel_id = models.CharField(
