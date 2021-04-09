@@ -5,7 +5,7 @@ class Meta:
     managed = True
 
 # create squirrel
-class Squirrel(models.Model): #longtitude latitute顺序会相反吗
+class Squirrel(models.Model):
     Longitude = models.FloatField(
         help_text = _('E.g. -73.964285'),
     )
