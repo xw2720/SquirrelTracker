@@ -14,10 +14,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path  # , include
-from squirrel_tracker.views import MapView
+# from squirrel_tracker.views import MapView
+from squirrel_tracker import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('map/', MapView.as_view(), name='map'),
-    # TODO add sightings methods view paths here
+    # ----
+    # path('map/', MapView.as_view(), name='map'),
+    path('map/', views.map_view, name='map'),
+    path('sightings/', views.sightings, name='sighting'),
+    path('sightings/add/', views.sightings_add, name='add'),
+    # ----
+    path('sightings/stats/', views.sightings_stats, name='stats'),
+    path('sightings/<squirrel_id>/', views.sightings_update, name='update'),
 ]
