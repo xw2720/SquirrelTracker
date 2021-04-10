@@ -1,5 +1,5 @@
 from django.urls import path
-from map.views import MapView
+from squirrel_tracker.views import MapView
 
 app_name = 'map'
 urlpatterns = [
