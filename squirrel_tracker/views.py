@@ -42,7 +42,9 @@ def sightings_stats(request):
 def sightings_update(request, squirrel_id):
     # TODO
     print("(debug) squirrel_id: ", squirrel_id)
-    context = {}
+    context = {
+        "squirrel_id": squirrel_id,
+    }
     return render(request, 'sightings/update.html', context)
 
 # class MapView(TemplateView):
