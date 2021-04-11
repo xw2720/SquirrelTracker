@@ -1,10 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Squirrel Sightings</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style type="text/css">
+    h1 {
+      color: White;
+      font-size: 45pt;
+      font-family: times;
+    }
+
+    body {
+      color: #FFFFFF;
+      font-size: 30pt;
+      font-family: times;
+      background: #02075D;
+      margin: 100px 50px;
+    }
+
+    ul {
+      columns: 2;
+    }
+  </style>
+
 </head>
+
 <body>
-$END$
+  <h1 class="strong mt-3 text-center">List of Unique Squirrels</h1>
+	<center>
+  <br>
+  <!--<a href=''  class='col=4'><button type="button" class='btn btn-outline-danger'>Homepage</button></a>-->
+  <a href="/map" class="btn btn-info" role="button" style="width:200px;height:30px" align="center">Squirrel Map</a>
+        <br>
+  <a href="/sightings/stats" class="btn btn-info" role="button" style="width:200px;height:30px" align="center">Squirrel Statistics</a>
+        <br>
+  <a href="/sightings/add" class="btn btn-info" role="button" style="width:200px;height:30px" align="center">Add Squirrel Information</a>
+	</center>
+  <br>
+
+  <div>
+    <ul>
+      {% for squirrel in squirrels %}
+      <li>
+        ID: <a href='/sightings/{{squirrel.Unique_squirrel_id}}/'>{{ squirrel.Unique_squirrel_id }}</a>
+	Date: {{squirrel.Date}}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
 </body>
 </html>
