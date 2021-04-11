@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.views.generic import TemplateView
+##Form要写在哪里
 
 from squirrel_tracker.models import Squirrel
 
@@ -10,6 +11,7 @@ from squirrel_tracker.models import Squirrel
 def index(request):
     # redirect our homepage to map view
     return redirect('map/')
+    #return render(request,'index.html', {})
 
 
 # [:100] 限制marker实际显示在map上的个数
@@ -23,7 +25,9 @@ def map_view(request):
 
 def sightings(request):
     # TODO template file by wendy
-    context = {}
+    ##
+    squirrel = Squirrel.objects.all()
+    context = {'Squirrel':squirrel}
     return render(request, 'sightings/sightings.html', context)
 
 
