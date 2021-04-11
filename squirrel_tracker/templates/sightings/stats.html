@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>Stats</title>
 
     <!-- Required meta tags -->
@@ -8,33 +8,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
     <style>
 
     </style>
-  </head>
-  <body>
-    <!-- Place stats here -->
-    <div>you are visiting stats view!</div>
-    <table>
-    <tr>
-        <th>Item</th>
-        <th>Value</th>
-    </tr>
+</head>
+<body>
+{% load custom_tags %}
 
-    {% load custom_tags %}
+<nav class="navbar navbar-expand-md navbar-dark fixed-top"
+     style="background-color: #2980b9;">
+    <a class="navbar-brand" href="#">Squirrels Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    {% for item_key, item_name in stat_cols %}
-    <tr>
-        <td>{{ item_name }}</td>
-        <td>{{ stats|get_item:item_key }}</td>
-    </tr>
-    {% endfor %}
-</table>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/map">Map</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sightings">Sightings</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/sightings/stats">Statistics<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sightings/add">Add My Sighting</a>
+            </li>
 
+        </ul>
+    </div>
+</nav>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+<div role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 style="margin-top: 40px;">Squirrels Sighting Statistics</h1>
+            <br/>
+            <p>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item_key, item_name in stat_cols %}
+                <tr>
+                    <td>{{ item_name }}</td>
+                    <td>{{ stats|get_item:item_key }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<footer class="container">
+    <p> Squirrel raw data comes from here: <a
+            href="https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw"
+            target="_blank">NYC Open Data</a>.</p>
+    <p>
+        Contributed by Katie and Wendy. Thank you for visiting this website.
+    </p>
+</footer>
+</body>
 </html>
