@@ -4,7 +4,7 @@
 </html>
 
 <head>
-    <title>Homepage</title>
+    <title>Sightings</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -27,52 +27,52 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #2980b9;">
-    <a class="navbar-brand" href="#">Squirrels Tracker</a>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #2980b9;">
+    <a class="navbar-brand" href="#">Squirrel Tracker</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/indexing/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/map/">Map</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/sightings/">Sightings<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/sightings/add">Add</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/sightings/stats">Statistics</a>
-        </li>
-
-      </ul>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/map">Map</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/sightings">Sightings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sightings/stats">Statistics</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sightings/add">Add My Sighting</a>
+            </li>
+        </ul>
     </div>
-  </nav>
+</nav>
 
-  <div class="jumbotron">
-      <div class="container">
-          <h3 class="display-3">Squirrel Tracker<img
-                  src="https://img.favpng.com/12/6/9/chipmunk-squirrel-cartoon-illustration-png-favpng-vph4AgZcDdSnbW24tHZU60QnY.jpg"
-                  alt="Squirrels Logo" class="logo" width="160" height="120" /></h3>
+<div role="main">
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 style="margin-top: 40px;">Squirrel Tracker</h1>
+            <div id='main-content' class="right-column col-md-12">
+                <ul>
+                    {% for squirrel in squirrels %}
+                    <li style="margin-right:40px; display:inline-block"><a
+                            href="{% url 'edit_squirrel' squirrel.unique_squirrel_id %}">{{ squirrel.unique_squirrel_id
+                        }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
 
-          <div id='main-content' class="right-column col-md-12">
-              <ul>
-                  {% for squirrel in squirrels %}
-                      <li style="margin-right:40px; display:inline-block"><a href="{% url 'edit_squirrel' squirrel.unique_squirrel_id %}">{{ squirrel.unique_squirrel_id }}</a>
-                      </li>
-                  {% endfor %}
-              </ul>
-          </div>
 
-
-          <div class="text-center">
+            <div class="text-center">
           <span class="step-links">
             {% if squirrels.has_previous %}
                 <a class="btn btn-primary btn-sm" href="?page=1">&laquo; first</a> &nbsp; &nbsp;
@@ -84,31 +84,29 @@
             </span>
 
               {% if squirrels.has_next %}
-                  <a class="btn btn-primary btn-sm"  href="?page={{ squirrels.next_page_number }}">next</a> &nbsp; &nbsp;
+                  <a class="btn btn-primary btn-sm" href="?page={{ squirrels.next_page_number }}">next</a> &nbsp; &nbsp;
                   <a class="btn btn-primary btn-sm" href="?page={{ squirrels.paginator.num_pages }}">last &raquo;</a>
               {% endif %}
           </span>
-          </div>
-          <br>
-          <br>
-          <p><a class="btn btn-primary btn-sm" href="/sightings/add" role="button">Add squirrel sighting&raquo;</a></p>
-      </div>
-  </div>
-
-  <div class='row' class='header col-md-12' role="banner">
-  </div>
-
-</main>
-
+            </div>
+            <br>
+            <br>
+            <p><a class="btn btn-primary btn-sm" href="/sightings/add" role="button">Add squirrel sighting&raquo;</a>
+            </p>
+        </div>
+    </div>
+    <div class='row' class='header col-md-12' role="banner">
+    </div>
+</div>
 </body>
-  <footer class="container">
+<footer class="container">
     <p> Squirrel raw data comes from here: <a
             href="https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw"
             target="_blank">NYC Open Data</a>.</p>
     <p>
         Contributed by Katie and Wendy. Thank you for visiting this website.
     </p>
-    </footer>
+</footer>
 </body>
 
 </html>

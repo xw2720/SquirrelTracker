@@ -1,24 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Update</title>
+<head>
+    <title>Update sighting</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <style>
 
     </style>
-  </head>
-  <body>
-    <!-- Create update informations form here -->
-    <div>you are visiting update view!  squirrel_id is {{ squirrel_id }}</div>
+</head>
+<body>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top"
+     style="background-color: #2980b9;">
+    <a class="navbar-brand" href="#">Squirrel Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/map">Map</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sightings">Sightings</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/sightings/stats">Statistics<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sightings/add">Add My Sighting</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 style="margin-top: 40px;">Update Squirrel Sighting</h1>
+            <br/>
+            <p>
+            <div>TODO....</div>
+            </p>
+        </div>
+    </div>
+
+</div>
+<footer class="container">
+    <p> Squirrel raw data comes from here: <a
+            href="https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw"
+            target="_blank">NYC Open Data</a>.</p>
+    <p>
+        Contributed by Katie and Wendy. Thank you for visiting this website.
+    </p>
+</footer>
+</body>
 </html>
