@@ -105,40 +105,40 @@ class Squirrel(models.Model):
     )
 
     Other_activities = models.TextField(
-        help_text=_('Other Activities'),
+        help_text=_('Squirrel that does other Activities'),
         blank = True,
     )
 
     Kuks = models.BooleanField(
-        help_text = _('Kuks'),
+        help_text = _('Kuks sound'),
     )
 
     Quaas = models.BooleanField(
-        help_text = _('Quaas'),
+        help_text = _('Quaas sound'),
     )
 
     Moans = models.BooleanField(
-        help_text = _('Moan'),
+        help_text = _('Moan sound'),
     )
 
     Tail_flags = models.BooleanField(
-        help_text = _('Tail Flags'),
+        help_text = _('Squirrel with Tail Flags'),
     )
 
     Tail_twitches = models.BooleanField(
-        help_text = _('Tail Twitches'),
+        help_text = _('Squirrel with Tail Twitches'),
     )
 
     Approaches = models.BooleanField(
-        help_text = _('Approaches'),
+        help_text = _('Squirrel that Approaches people'),
     )
 
     Indifferent = models.BooleanField(
-        help_text = _('Indifferent'),
+        help_text = _('Squirrel that is Indifferent'),
     )
 
     Runs_from = models.BooleanField(
-        help_text = _('Runs From'),
+        help_text = _('Squirrel that Runs From'),
     )
 
     def __str__(self):

@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views.generic import TemplateView
 
 from squirrel_tracker.models import Squirrel
+from squirrel_tracker.forms import SquirrelForm
 
 
 # Create your views here.
@@ -103,10 +104,19 @@ def sightings_stats(request):
 
 
 def sightings_update(request, squirrel_id):
-    # TODO use Django Form here
     print("(debug) squirrel_id: ", squirrel_id)
+
+    squirrel = Squirrel.objects.get(Unique_squirrel_id=squirrel_id)
+    if request.method == 'POST':
+        form = SquirrelForm(request.POST, instance=squirrel)
+        if form.is_valid():
+            form.save()
+            return redirect(f'/sightings/{squirrel_id}')
+    else:
+        form = SquirrelForm(instance=squirrel)
+
     context = {
-        "squirrel_id": squirrel_id,
+        'form': form,
     }
     return render(request, 'sightings/update.html', context)
 
