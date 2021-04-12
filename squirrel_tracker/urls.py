@@ -19,7 +19,7 @@ from squirrel_tracker import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
+    path('indexing/', views.index, name='index'),
     # ----
     # path('map/', MapView.as_view(), name='map'),
     path('map/', views.map_view, name='map'),

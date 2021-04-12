@@ -8,7 +8,7 @@ from squirrel_tracker.models import Squirrel
 # Create your views here.
 
 def index(request):
-    return render(request,'indexing/indexing.html', {})
+    return render(request, 'indexing/indexing.html', {})
 
 
 # [:100] 限制marker实际显示在map上的个数

@@ -1,72 +1,112 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
-  <title>Central Park Squirrels</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Homepage</title>
 
-  <style type="text/css">
-    h1 {
-      color: Black;
-      font-size: 50pt;
-      font-family: Comic Sans MS;
-    }
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    body {
-      color: Black;
-      font-size: 16pt;
-      font-family: times;
-      background: #EEFFD0;
-      margin: 50px 50px;
-    }
-    p{
-	    margin:35px;
-	    text-indent: 2.0em;
-    }
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
+    <style>
+
+    </style>
 </head>
 
 <body>
 
-  <h1 class="strong mt-3 text-center">Squirrels in Central Park</h1>
 
-  </br>
-  <center>
-    <a href='/map/' class='col-4'><button type="button" class='btn btn-outline-success'>Squirrels Map</button></a>
-    <a href='/sightings/' class='col-4'><button type="button" class='btn btn-outline-danger'>Sightings</button></a>
-    <a href='/sightings/stats/' class='col-4'><button type="button" class='btn btn-outline-warning'>Statistics</button></a>
-    <a href='/sightings/add/' class='col-4'><button type="button" class='btn btn-outline-info'>Add a New Squirrel</button></a>
-  </center>
-  </br>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top"
+     style="background-color: #2980b9;">
+    <a class="navbar-brand" href="#">Squirrel Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <p> We are trying to keep track of the squirrels found in the Central Park. Clicking the "Squirrels Map" button, you can find the squirrels' positions in the map. Clicking the "Sightings" button, you may see a list of all squirrels with their unique ID and the date the squirrel is recorded. You may also update their information (such as location, shift, primary fur color...) by clicking on their ID link. Clicking the "Statistics" button, you could find a statistical summary of recorded squirrels. At last, you are welcome to add new squirrels to the dataset by clicking the "Add a New Squirrel" button.
-  </br>
-  <p> This open data is from City of New York. The name is "2018 Central Park Squirrel Census - Squirrel Data".
-  </br>
-  <p> Let's see where the squirrels are... ^^
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">##这里的code suppose要在导航页突出home，但是code没起到作用
+                <a class="nav-link" href="/indexing">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/map">Map</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sightings">Sightings</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/sightings/stats">Statistics</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sightings/add">Add My Sighting</a>
+            </li>
 
-  <center>
-    <a href='/map/' class='col-4'><button type="button" class='btn btn-info'>Find them in the map!</button></a>
-    <a href='/sightings/' class='col-4'><button type="button" class='btn btn-warning'>See unique squirrel information -></button></a>
-  </center>
+        </ul>
+    </div>
+</nav>
 
-  </br>
-  <center>
-  	<img src='https://render.fineartamerica.com/images/rendered/default/wood-print/12/7/break/images/artworkimages/medium/2/cute-squirrel-kativ.jpg' >
-  </center>
+      <main role="main">
 
-  <div>
-  <script src="https://code.jquery.com/jquery-3.4.0.min.js"
-    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-      </div>
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+          <div class="container">
+            <h1 class="display-2">Squirrel Tracker<img
+              src="https://img.favpng.com/12/6/9/chipmunk-squirrel-cartoon-illustration-png-favpng-vph4AgZcDdSnbW24tHZU60QnY.jpg"
+              alt="Squirrels Logo" class="logo" width="140" height="120" /></h1> ##这个图片背景没扣掉，如果实在搞不掉就不要图片了
+            <p>Welcome to the Squirrel Tracker site! The site has information about the squirrels in the Central Park including location and statistics.
+                Please help us to update the website by adding more squirrel sightings! Thank you for visiting our website and contributing to it!
+            </p>
+          </div>
+        </div>
+
+        <div class="container">
+          <!-- Example row of columns -->
+          <div class="row">
+            <div class="col-md">
+              <h2>Map</h2>
+              <p>Discover the squirrel locations in the Central Park.</p>
+              <p><a class="btn btn-secondary" href="/map/" role="button" style="background-color: #2980b9; border: none;">View details &raquo;</a></p>
+            </div>
+            <div class="col-md">
+              <h2>Sighting</h2>
+              <p>Discover the squirrel sightings in the Central Park.</p>
+              <p><a class="btn btn-secondary" href="/sightings/" role="button" style="background-color: #2980b9; border: none;">View details &raquo;</a></p>
+            </div>
+            <div class="col-md">
+              <h2>Statistics</h2>
+              <p>Discover the statistics of squirrels in the Central Park.</p>
+              <p><a class="btn btn-secondary" href="/sightings/stats" role="button" style="background-color: #2980b9; border: none;">View details &raquo;</a></p>
+            </div>
+          </div>
+
+          <hr>
+
+        </div> <!-- /container -->
+
+      </main>
+
+    <footer class="container">
+    <p> Squirrel raw data comes from here: <a
+            href="https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw"
+            target="_blank">NYC Open Data</a>.</p>
+    <p>
+        Contributed by Katie and Wendy. Thank you for visiting this website.
+    </p>
+    </footer>
+
+
 </body>
+
 </html>
