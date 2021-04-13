@@ -60,6 +60,10 @@
     <div class="jumbotron">
         <div class="container">
             <h1 style="margin-top: 40px;">Squirrel Tracker</h1>
+            <br>
+            <p><a class="btn btn-primary" href="/sightings/add" role="button">Add squirrel sighting&raquo;</a>
+            </p>
+            <br>
             <div id='main-content' class="right-column col-md-12">
                 <ul>
                     {% for squirrel in squirrels %}
@@ -70,28 +74,7 @@
                 </ul>
             </div>
 
-
-            <div class="text-center">
-          <span class="step-links">
-            {% if squirrels.has_previous %}
-                <a class="btn btn-primary btn-sm" href="?page=1">&laquo; first</a> &nbsp; &nbsp;
-                <a class="btn btn-primary btn-sm" href="?page={{ squirrels.previous_page_number }}">previous</a> &nbsp; &nbsp;
-            {% endif %}
-
-              <span class="current">
-              Page {{ squirrels.number }} of {{ squirrels.paginator.num_pages }}. &nbsp; &nbsp;
-            </span>
-
-              {% if squirrels.has_next %}
-                  <a class="btn btn-primary btn-sm" href="?page={{ squirrels.next_page_number }}">next</a> &nbsp; &nbsp;
-                  <a class="btn btn-primary btn-sm" href="?page={{ squirrels.paginator.num_pages }}">last &raquo;</a>
-              {% endif %}
-          </span>
-            </div>
             <br>
-            <br>
-            <p><a class="btn btn-primary btn-sm" href="/sightings/add" role="button">Add squirrel sighting&raquo;</a>
-            </p>
         </div>
     </div>
     <div class='row' class='header col-md-12' role="banner">

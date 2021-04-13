@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '*k^j71-$dj*)@cewny3z9gc%ili@8-s5y!q8ik_4sy$p1t%@w@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # True
+DEBUG = True  # if set it to False, execute runserver with '--insecure'
 
 ALLOWED_HOSTS = ['*']
 
