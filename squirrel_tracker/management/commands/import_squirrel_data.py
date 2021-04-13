@@ -4,6 +4,7 @@ from squirrel_tracker.models import Squirrel
 import csv
 import datetime
 
+
 class Command(BaseCommand):
     help = 'this command is for importing data'
 
@@ -18,7 +19,7 @@ class Command(BaseCommand):
 
         path = kwargs['path']
         try:
-            with open(path, encoding='utf-8') as fn: #fn = file name
+            with open(path, encoding='utf-8') as fn:  # fn = file name
                 reader = csv.DictReader(fn)
                 for i in reader:
                     s = Squirrel(
@@ -48,6 +49,6 @@ class Command(BaseCommand):
                         Runs_from=i['Runs from'].capitalize(),
                     )
                     s.save()
+            self.stdout.write(self.style.SUCCESS('Successfully'))
         except csv.Error as e:
             print(f'there is error with {reader.line_num}')
-        self.stdout.write(self.style.SUCCESS('Successfully'))

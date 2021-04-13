@@ -22,8 +22,6 @@ def map_view(request):
 
 
 def sightings(request):
-    # TODO template file by wendy
-    ##
     squirrels = Squirrel.objects.all()
     context = {'squirrels': squirrels}
     return render(request, 'sightings/sightings.html', context)
@@ -33,8 +31,10 @@ def sightings_add(request):
     form = SquirrelForm(request.POST)
     if request.method == 'POST':
         if form.is_valid():
-            form.save()
-            return redirect(f'/sightings/add')
+            added_squirrel = form.save(commit=False)
+            added_squirrel.save()
+            squirrel_id = added_squirrel.Unique_squirrel_id
+            return redirect(f'/sightings/{squirrel_id}')
 
     context = {
          'form': form,
@@ -111,14 +111,15 @@ def sightings_stats(request):
 
 
 def sightings_update(request, squirrel_id):
-    print("(debug) squirrel_id: ", squirrel_id)
+    squirrel = get_object_or_404(Squirrel, Unique_squirrel_id=squirrel_id)
+    form = SquirrelForm(request.POST or None, instance=squirrel)
 
-    squirrel = Squirrel.objects.get(Unique_squirrel_id=squirrel_id)
     if request.method == 'POST':
-        form = SquirrelForm(request.POST, instance=squirrel)
         if form.is_valid():
-            form.save()
-            return redirect(f'/sightings/{squirrel_id}')
+            updated_squirrel = form.save(commit=False)
+            updated_squirrel.save()
+            squirrel_id = updated_squirrel.Unique_squirrel_id
+            return redirect(f'/sightings/#{squirrel_id}')
     else:
         form = SquirrelForm(instance=squirrel)
 
@@ -126,17 +127,3 @@ def sightings_update(request, squirrel_id):
         'form': form,
     }
     return render(request, 'sightings/update.html', context)
-
-# class MapView(TemplateView):
-#     """
-#     Merge from Wendy's original seperated project
-#     ref: https://docs.djangoproject.com/zh-hans/3.1/topics/class-based-views/
-#     """
-#     template_name = "map/map.html"
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         # TODO add query of squirrel data here
-#         sightings = Squirrel.objects.all()
-#         context["sightings"] = sightings
-#         return context

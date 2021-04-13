@@ -9,7 +9,8 @@ class SquirrelForm(ModelForm):
             normal_row="""<div class="form-group row %(html_class_attr)s">
 	<div class="col-4">%(label)s</div>
 	<div class="col-8">%(field)s</div>
-	<div class="col-4" style="color: #718093;">%(help_text)s%(errors)s</div>
+	<div class="col-4" style="color: #718093;">%(help_text)s</div>
+	<div class="col-4" style="color: #e84118;">%(errors)s</div>
 </div>""",
             error_row='<div class="error">%s</div>',
             row_ender='</div>',

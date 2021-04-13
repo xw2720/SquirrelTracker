@@ -10,8 +10,8 @@ class Command(BaseCommand):
         parser.add_argument('args', type=str, nargs='*')
 
     def handle(self, *args, **kwargs):
-        #path = args[0]
-        #fields = Squirrel._meta.fields
+        # path = args[0]
+        # fields = Squirrel._meta.fields
 
         # model = apps.get_model('map','Squirrrel')
         field_names = [f.name for f in Squirrel._meta.fields]
@@ -24,3 +24,5 @@ class Command(BaseCommand):
             for instance in Squirrel.objects.all():
                 writer.writerow([str(getattr(instance, fn)) for fn in field_names])
             fn.close()
+
+        self.stdout.write(self.style.SUCCESS('Successfully'))
