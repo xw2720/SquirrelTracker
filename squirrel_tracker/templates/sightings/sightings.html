@@ -64,8 +64,7 @@
                 <ul>
                     {% for squirrel in squirrels %}
                     <li style="margin-right:40px; display:inline-block"><a
-                            href="{% url 'edit_squirrel' squirrel.unique_squirrel_id %}">{{ squirrel.unique_squirrel_id
-                        }}</a>
+                            href="{% url 'update' squirrel.Unique_squirrel_id %}">{{ squirrel.Unique_squirrel_id }}</a>
                     </li>
                     {% endfor %}
                 </ul>

@@ -24,14 +24,21 @@ def map_view(request):
 def sightings(request):
     # TODO template file by wendy
     ##
-    squirrel = Squirrel.objects.all()
-    context = {'Squirrel': squirrel}
+    squirrels = Squirrel.objects.all()
+    context = {'squirrels': squirrels}
     return render(request, 'sightings/sightings.html', context)
 
 
 def sightings_add(request):
-    # TODO template file by wendy
-    context = {}
+    form = SquirrelForm(request.POST)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect(f'/sightings/add')
+
+    context = {
+         'form': form,
+    }
     return render(request, 'sightings/add.html', context)
 
 
