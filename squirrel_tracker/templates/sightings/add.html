@@ -1,8 +1,7 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Add My Sighting</title>
+    <title>Update squirrel sighting</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,20 +11,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-
     <style>
 
     </style>
 </head>
-
 <body>
-{% load custom_tags %}
+
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top"
      style="background-color: #2980b9;">
@@ -46,34 +37,53 @@
             <li class="nav-item">
                 <a class="nav-link" href="/sightings">Sightings</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/sightings/stats">Statistics</a>
-            </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/sightings/add">Add My Sighting<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/sightings/stats">Statistics<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sightings/add">Add My Sighting</a>
             </li>
         </ul>
     </div>
 </nav>
 
 <div role="main">
+
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
         <div class="container">
-            <h1 style="margin-top: 40px;">Add My Sighting</h1>
+            <h1 style="margin-top: 40px;">Add Squirrel Sighting</h1>
             <br/>
             <p>
             <form method="post">
-                {% csrf_token %}
+              {% csrf_token %}
 
-                {{ form.as_p }}
-                <br>
-
-                <input class="btn btn-primary" type="submit" name="Submit" value="Submit">
+              {{ form.as_div }}
+              <br>
+              <input class="btn btn-primary btn-lg" type="submit" name="Submit" value="Add Sighting">
             </form>
+<!--            <table class="table table-striped">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th>Attribute</th>-->
+<!--                    <th>Value</th>-->
+<!--                    <th>Comment</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+
+<!--                <tr>-->
+<!--                    <td></td>-->
+<!--                    <td></td>-->
+<!--                    <td></td>-->
+<!--                </tr>-->
+
+<!--                </tbody>-->
+<!--            </table>-->
             </p>
         </div>
     </div>
+
 </div>
 <footer class="container">
     <p> Squirrel raw data comes from here: <a
@@ -84,5 +94,4 @@
     </p>
 </footer>
 </body>
-
 </html>
