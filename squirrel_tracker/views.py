@@ -31,10 +31,8 @@ def sightings_add(request):
     form = SquirrelForm(request.POST)
     if request.method == 'POST':
         if form.is_valid():
-            added_squirrel = form.save(commit=False)
-            added_squirrel.save()
-            squirrel_id = added_squirrel.Unique_squirrel_id
-            return redirect(f'/sightings/{squirrel_id}')
+            form.save()
+            return redirect(f'/sightings/')
 
     context = {
          'form': form,
