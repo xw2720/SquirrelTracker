@@ -3,3 +3,7 @@ runtime: python37
 handlers:
 - url: /static
   static_dir: squirrel_tracker/static
+
+env_variables:
+    GS_BUCKET_NAME: 'plasma-matter-309409.appspot.com'
+    GOOGLE_APPLICATION_CREDENTIALS: 'key.json'
