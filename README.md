@@ -9,4 +9,4 @@
 ##### Project Group #: 3
 
 ## Link to the website
-<https://github.com/xw2720/SquirrelTracker>
+<https://github.com/xw2720/SquirrelTracker.git>
