@@ -10,3 +10,5 @@
 
 ## Link to the website
 <https://github.com/xw2720/SquirrelTracker.git>
+##### Readonly link
+<https://plasma-matter-309409.appspot.com/>
